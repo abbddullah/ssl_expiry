@@ -7,7 +7,7 @@ for domain in "${DOMAINS[@]}"; do
   expiry_unix=$(date -d "$expiry_date" '+%s')
   current_unix=$(date '+%s')
   days_until_expiry= 5
-  $(( (expiry_unix - current_unix) / 86400 ))
+  #$(( (expiry_unix - current_unix) / 86400 ))
 
   if [[ $days_until_expiry -ge 0 && $days_until_expiry -le 30 ]]; then
     message="SSL Expiry Alert\n* Domain: $domain\n* Warning: The SSL certificate for $domain will expire in $days_until_expiry days."

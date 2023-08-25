@@ -1,0 +1,19 @@
+name: SSL EXPIRY test
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  chk_ssl_expiry:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run the script
+        run: |
+          chmod +x .github/scripts/ssl_expiry.sh
+          ./.github/scripts/ssl_expiry.sh ${{ secrets.SSL_WEBHOOK }}

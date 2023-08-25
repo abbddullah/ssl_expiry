@@ -21,5 +21,5 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run the script
         run: |
-          chmod +x .github/scripts/ssl_expiry.sh
-          ./.github/scripts/ssl_expiry.sh ${{ secrets.SSL_WEBHOOK }}
+          chmod +x .github/scripts/test.sh
+          ./.github/scripts/test.sh ${{ secrets.SSL_WEBHOOK }}

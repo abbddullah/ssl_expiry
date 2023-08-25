@@ -10,7 +10,7 @@ for i in "${DOMAINS[@]}"; do
 
   if [[ $remaining_days -ge 0 && $remaining_days -le 30 ]]; then
     msg="SSL Expiry Alert\n   * Domain: $i\n   * Warning: The SSL certificate for $i will expire in $remaining_days days."
-    payload="{\"text\":\"$msg\"}"
-    curl -X POST -H 'Content-type: application/json' --data "$payload" "$SLACK_URL"
+        curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"$msg\"}" "$SLACK_URL"
+
   fi
 done

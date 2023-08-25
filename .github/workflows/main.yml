@@ -1,0 +1,23 @@
+name: SSL EXPIRY test
+
+# Controls when the workflow will run
+on:
+  schedule:
+    - cron: 0 0 * * *
+  workflow_dispatch:
+
+jobs:
+  chk_ssl_expiry:
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: checkout repo
+        # Checkout the repository code
+        uses: actions/checkout@v3
+
+      # Runs a single command using the runners shell
+      - name: Run the script
+        run: |
+          chmod +x .github/scripts/ssl_expiry.sh
+          ./.github/scripts/ssl_expiry.sh ${{ secrets.SSL_WEBHOOK }}

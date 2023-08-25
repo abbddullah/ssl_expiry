@@ -10,3 +10,5 @@ for i in "${DOMAINS[@]}"; do
       msg="SSL Expiry Alert\n   * Domain : "$i"   \n* Warning : The SSL certificate for $i will expire in $remaining_days days."
       payload="{\"text\":\"$msg\"}"
       curl -X POST -H 'Content-type: application/json' --data "$payload" "$SLACK_URL"
+    fi
+  done

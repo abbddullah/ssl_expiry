@@ -15,5 +15,6 @@ jobs:
 
       - name: Run the script
         run: |
+          echo "flag"
           chmod +x .github/scripts/ssl_expiry_test.sh
           ./.github/scripts/ssl_expiry_test.sh ${{ secrets.SSL_WEBHOOK }}
